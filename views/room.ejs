@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+    <style>
+
+    #video-grid {
+        display:flex;
+        justify-content:center;
+
+        } 
+
+video{
+width:300px;
+    height:400px    ;
+    object-fit: cover;
+
+}
+
+.screen{
+    height: 100vh;
+    display: flex;
+background:black;
+}
+.screen_left{
+    flex: 0.8;
+    display: flex;
+    flex-direction: column;
+        align-items: center;
+    justify-content: center;
+
+}
+        .main-controls{
+        display: flex;
+    width: 100vh;
+    background: grey;
+    height: 30px;
+    color: white;
+    padding: 5px;
+            justify-content:center;
+            align-items:center;
+            
+}
+        #buttons{
+        display: flex;
+    flex-direction: column;
+        padding:10px 30px;
+            justify-content:center;
+            align-items:center;
+            cursor:pointer;
+        height:20px;
+        }
+        }
+
+.main_screen_left{      
+
+    display: flex;
+
+}
+        #fname{
+        padding:10px 10px;
+    position: absolute;
+  top: 95vh;
+            left:940px;
+        width:300px;
+            text-align:left;
+            background-color:silver;
+        }
+.screen_right{
+min-width:400px;
+    text-align: center;
+    background: #C0C0C0;
+    padding:5px;
+
+}
+        #CHATS{
+        color:white;
+            position:absolute;
+          top:-4px;
+            left:1070px;
+        }
+                #message_box{
+                    min-width:400px;
+                    height:600px;
+                     position:absolute;
+                    top:40px;
+            left:850px;
+color:white;
+                    overflow-y:scroll;
+                    text-align:center;
+        }
+        #mess{
+        padding:10px 5px;
+        
+        }
+        
+</style>
+      <script>
+      var Room_ID = "<%= roomId %>"
+      </script>
+      <script src="https://kit.fontawesome.com/1aaa515ef0.js" crossorigin="anonymous" defer></script>
+      <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js" defer></script>
+      <script src='/socket.io/socket.io.js' defer></script>
+      <script src="sketch.js" defer></script>
+  </head>
+  <body>
+      <div class ='screen'>
+      <div class='screen_left'>
+          <div class='main_screen_left'>
+             <div id='videogrid'></div>
+              
+          
+ 
+          </div>
+                   <div class="main-controls">
+          <div id='buttons' class='mute' onclick="muteUnmute()">
+              <i class="fas fa-microphone"></i>
+              </div>
+                       <div id='buttons' class='video'  onclick="videoChange()">
+              <i class="fas fa-video"></i>
+              </div>
+                        <div id='buttons'>
+              <i class="fas fa-address-book"></i>
+              </div>
+                        <div id='buttons'>
+              <i class="fas fa-sms"></i>
+              </div>
+         <div id='buttons'>
+     <i class="fas fa-sign-out-alt"></i>
+              </div>
+
+          </div>
+ 
+          </div>
+                <div class='screen_right'>
+                    <div class='main_header'>
+                    <h4  id='CHATS'>Chat</h4>
+                    <ul id='message_box'></ul>
+                        </div>
+                       <input type="text" id="fname" name="fname" value=""><br>
+                    
+                     
+          </div>
+      </div>
+
+      
+  </body>
+</html>
